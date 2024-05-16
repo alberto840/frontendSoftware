@@ -38,3 +38,14 @@ jobs:
     - name: Build and Run Docker Compose
       run: |
         docker-compose up -d --build
+
+    - name: Open ports
+      run: |
+        sudo ufw allow 5432/tcp
+        sudo ufw allow 8040/tcp
+        sudo ufw allow 5432/tcp
+        sudo ufw allow 8040/tcp
+        sudo ufw allow 9000/tcp
+        sudo ufw allow 9001/tcp
+        sudo ufw allow 9090/tcp
+        sudo ufw allow 3000/tcp
