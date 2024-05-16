@@ -49,3 +49,12 @@ jobs:
         sudo ufw allow 9001/tcp
         sudo ufw allow 9090/tcp
         sudo ufw allow 3000/tcp
+        
+    - name: Make GET request to API
+      run: |
+        curl -v http://localhost:8040/api/user/all
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: build # The folder the action should deploy.
