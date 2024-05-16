@@ -52,7 +52,6 @@ services:
       - prometheus
   spring-boot-app:
     build:
-      context: ../Apli-Servi
       dockerfile: Dockerfile
     ports:
       - "8040:8040"
