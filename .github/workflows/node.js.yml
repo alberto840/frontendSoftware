@@ -61,16 +61,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: 20
 
-      - name: Install dependencies
-        run: npm install --force
-
-      - name: Build
-        run: npm run build:prod
+      - name: Build Angular app to prod
+        working-directory: front
+        run: npm install --force && npm run build:prod       
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/proyecto-tienda
+          folder: github-option-three-app/dist/browser
+          branch: prod  
+          token: ${{ secrets.GH_TOKEN }}
